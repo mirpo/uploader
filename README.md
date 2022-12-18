@@ -36,9 +36,9 @@ BODY_LIMIT=1M
 
 ### Start server
 
-Copy `.env_default` to `.env` and then:
-- `make start-locally` without Docker
-- `make start` using Docker
+1. Copy `.env_default` to `.env` and then:
+2. Create 2 folders: `mkdir uploads` and `mkdir cache`
+3. `make start` using Docker or `make start-locally` without Docker
 
 ### Predefined JWT token
 
@@ -62,20 +62,20 @@ Get list of receipts:
 
 Download receipt:
 ```shell
- curl -H 'Accept: application/json'  -X GET -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxIn0.TA1WENwC5LZ3dqlnfXKVziVI30uG8-7QSboAP9xoyzg" http://127.0.0.1:3333/v1/receipts/2022/12/15/1671097462498380000.jpg
+ curl -H 'Accept: application/json' -X GET -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxIn0.TA1WENwC5LZ3dqlnfXKVziVI30uG8-7QSboAP9xoyzg" http://127.0.0.1:3333/v1/receipts/2022/12/15/1671097462498380000.jpg
 ```
 
 Download receipt with resizing:
 ```shell
- curl -H 'Accept: application/json'  -X GET -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxIn0.TA1WENwC5LZ3dqlnfXKVziVI30uG8-7QSboAP9xoyzg" http://127.0.0.1:3333/v1/receipts/2022/12/15/1671097462498380000.jpg?width=200 --output test.jpg
+ curl -H 'Accept: application/json' -X GET -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxIn0.TA1WENwC5LZ3dqlnfXKVziVI30uG8-7QSboAP9xoyzg" http://127.0.0.1:3333/v1/receipts/2022/12/15/1671097462498380000.jpg?width=200 --output test.jpg
 ```
 
 List all receipts:
 ```shell
- curl -H 'Accept: application/json'  -X GET -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxIn0.TA1WENwC5LZ3dqlnfXKVziVI30uG8-7QSboAP9xoyzg" http://127.0.0.1:3333/v1/receipts
+ curl -H 'Accept: application/json' -X GET -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxIn0.TA1WENwC5LZ3dqlnfXKVziVI30uG8-7QSboAP9xoyzg" http://127.0.0.1:3333/v1/receipts
 ```
 
 OCR receipt:
 ```shell
- curl -H 'Accept: application/json'  -X GET -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxIn0.TA1WENwC5LZ3dqlnfXKVziVI30uG8-7QSboAP9xoyzg" http://127.0.0.1:3333/v1/receipts/ocr/2022/12/15/1671109072229953000.jpg
+ curl -H 'Accept: application/json' -X GET -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxIn0.TA1WENwC5LZ3dqlnfXKVziVI30uG8-7QSboAP9xoyzg" http://127.0.0.1:3333/v1/receipts/ocr/2022/12/15/1671109072229953000.jpg
 ```

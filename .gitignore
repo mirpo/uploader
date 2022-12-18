@@ -25,6 +25,4 @@ server
 coverage.out
 .env
 .DS_Store
-*.jpg
-*.png
 
