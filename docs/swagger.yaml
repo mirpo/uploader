@@ -1,0 +1,62 @@
+basePath: /v1
+definitions:
+  handler.FileResponse:
+    properties:
+      file:
+        type: string
+      path:
+        type: string
+      widths:
+        items:
+          type: string
+        type: array
+    type: object
+  handler.ListFileResponse:
+    properties:
+      files:
+        items:
+          $ref: '#/definitions/handler.FileResponse'
+        type: array
+      widths:
+        items:
+          type: string
+        type: array
+    type: object
+host: 127.0.0.1
+info:
+  contact:
+    name: mirpo
+    url: https://github.com/mirpo
+  description: upload receipt REST API
+  title: uploader
+  version: "1.0"
+paths:
+  /health:
+    get:
+      consumes:
+      - '*/*'
+      description: get the status of server.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Show the status of server.
+  /receipts:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ListFileResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: List uploaded receipts
+swagger: "2.0"
